@@ -17,6 +17,7 @@ const unsigned char MSG0[21] = "Hello World!!       ";
  */
 int main(int argc, char** argv) {
 
+    //Set PORTA to all outputs
     TRISA = 0;
     TRISB = 0x0F;
     TRISC = 0x0F;
