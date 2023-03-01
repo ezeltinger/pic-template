@@ -53,21 +53,8 @@ PROJECT=pic-template
 
 
 # build
-# This works
 build: .build-post
-	@$(PIC) \
-	-odist/default/production/$(PROJECT).production.cof \
-	-mdist/default/production/$(PROJECT).production.map \
-	--summary=default,-psect,-class,+mem,-hex \
-	--chip=18F4620 -P \
-	--runtime=default,+clear,+init,-keep,-download,+stackwarn,-config,+clib,-plib \
-	--opt=default,+asm,-asmfile,-speed,+space,9 \
-	-N31 --warn=0 --cp=16 -Blarge --double=24 \
-	--mode=lite \
-	--codeoffset=0x800 \
-	--output=default,-inhx032 -g \
-	--asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" \
-	build/default/production/template.p1
+
 
 .build-pre:
 # Add your pre 'build' code here...
@@ -77,18 +64,8 @@ build: .build-post
 
 
 # clean
-# This doesn't work
 clean: .clean-post
-	$(PIC) \
-	--pass1 template.c \
-	-q --chip=18F4620 -P \
-	--outdir="build/default/production" \
-	-N31 --warn=0 \
-	--runtime=default,+clear,+init,-keep,-download,+stackwarn,-config,+clib,-plib \
-	--opt=default,+asm,-asmfile,-speed,+space,9 \
-	--cp=16 -Blarge --double=24 \
-	--mode=lite -g \
-	--asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"
+
 
 .clean-pre:
 # Add your pre 'clean' code here...
