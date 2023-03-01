@@ -1,14 +1,12 @@
-/* 
- * File:   template.c
- * Author: Ethan Zeltinger
- *
- * Created on February 26, 2023, 2:18 PM
+/**
+ * @file template.c
+ * @author Ethan Zeltinger (ezeltinger@gmail.com)
+ * @brief A template program for the ECE376 PIC boards
+ * 
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <pic18.h>
-#include "lcd_portd.c"
+#include "lib/lcd_portd.c"
 
 const unsigned char MSG0[21] = "Hello World!!       ";
 

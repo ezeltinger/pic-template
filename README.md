@@ -1,6 +1,6 @@
 # pic-template
 
-This repo is just a place to store things from [ECE 376 - Embedded Systems](http://www.bisonacademy.com/ECE376/Index.htm) (taught by Dr. Jacob Glower) so that I don't forget it.
+This repo is just a place to store documentation and library functions from [ECE 376 - Embedded Systems](http://www.bisonacademy.com/ECE376/Index.htm) (taught by Dr. Jacob Glower) so that I don't forget it.
 
 ## Dependencies
 
@@ -11,5 +11,3 @@ In order to build this project you need a few tools.
 [PIC Flash Tool](http://www.bisonacademy.com/Software/PIC_Flash_Tool_1.2.exe)
 
 These tools can all be found on [BisonAcademy](http://www.bisonacademy.com/ECE376/Resources.htm)
-
-TODO - Figure out how to do this in Linux without any of these tools.
