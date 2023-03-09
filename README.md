@@ -37,5 +37,3 @@ These should be good for everyone with the default installations of the above li
 ## Documentation
 
 Doxygen style comments are used to create documentation for the helper functions in `lib/`. To generate html docs, [install Doxygen](https://www.doxygen.nl/download.html) (and add the Doxygen bin directory to the PATH) and run `doxygen` in the terminal to generate docs in `docs/`.
-
-**TODO** - Add comments to LCD functions
