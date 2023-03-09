@@ -15,3 +15,5 @@ These tools can all be found on [BisonAcademy](http://www.bisonacademy.com/ECE37
 ## Documentation
 
 Doxygen style comments are used to create documentation for the helper functions in `lib/`. To generate html and latex docs, [install Doxygen](https://www.doxygen.nl/download.html) (and add the Doxygen bin directory to the PATH) and run `doxygen` in the terminal to generate docs in `docs/`.
+
+TODO - Add comments to LCD functions
