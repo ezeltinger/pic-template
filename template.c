@@ -7,6 +7,11 @@
 
 #include <pic18.h>
 #include "lib/lcd_portd.c"
+#include "lib/a2d.c"
+#include "lib/d2a.c"
+#include "lib/keypad.c"
+#include "lib/neopixel.c"
+#include "lib/serial.c"
 
 const unsigned char MSG0[21] = "Hello World!!       ";
 

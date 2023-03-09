@@ -37,7 +37,8 @@ void D2A(unsigned int X)
 // Square Wave
 void d2a_square(void)
 {
-   while(1) {
+    unsigned int i;
+    while(1) {
         D2A(1638);
         for(i=1; i<3100; i++);
         D2A(2457);
@@ -48,18 +49,20 @@ void d2a_square(void)
 // Sawtooth Wave
 void d2a_sawtooth(void)
 {
+   unsigned int x, i;
    x = 1638;
    while(1) {
-      D2A(x);
-      x = x + 10;
-      if(x > 2457) x = 1638;
-      for(i=0; i<100; i++);
-      }
+        D2A(x);
+        x = x + 10;
+        if(x > 2457) x = 1638;
+        for(i=0; i<100; i++);
+    }
 }
 
 // Triangle Wave
 void d2a_triangle(void)
 {
+    unsigned int x, dx, i;
     x = 1638;
     dx = +10;
     while(1) {
@@ -74,9 +77,10 @@ void d2a_triangle(void)
 //Parabolic Sine Wave
 void d2a_sin(void)
 {
-   x = 0;
-   dx = 0;
-   while(1) {
+    unsigned int x, dx, y, i;
+    x = 0;
+    dx = 0;
+    while(1) {
         x = (x + 1) % 64;
         if(x == 0) dx = dx ^ 1;
         if(dx) y = 2048 + (2 * x * (64-x))/5;

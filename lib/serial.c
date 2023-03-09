@@ -30,7 +30,7 @@ void serial_init(void)
  * @param str string to write to the serial output
  * @param size number of characters in the string
  */
-void SCI_Write(char *str, size_t size)
+void SCI_Write(unsigned char *str, unsigned int size)
 {
     unsigned int i;
 
