@@ -41,15 +41,15 @@ void SCI_Write(unsigned char *str, unsigned int size)
 }
 
 /**
- * @brief Send a number to the serial output
+ * @brief Send a number to the serial output with a specified number of decimal places
  * 
  * @param data number to write to serial output
- * @param digits number of digits in 'data'
+ * @param num_digits number of digits in 'data'
  * @param decimal_places number of decimal places in 'data' or where to put the decimal point in 'data'
  */
-void SCI_Out(long int data, unsigned char digits, unsigned char decimal_places)
+void SCI_Out(long int data, unsigned char num_digits, unsigned char decimal_places)
 {
-    unsigned char A[10], i;
+    unsigned char character_buffer[10], i;
 
     while(!TRMT);
     if(data < 0) {
@@ -58,12 +58,12 @@ void SCI_Out(long int data, unsigned char digits, unsigned char decimal_places)
     }
     else TXREG = ' ';
     for (i=0; i<10; i++) {
-        A[i] = data % 10;
+        character_buffer[i] = data % 10;
         data = data / 10;
     }
-    for (i=digits; i>0; i--) {
+    for (i=num_digits; i>0; i--) {
         if (i == decimal_places) { while(!TRMT); TXREG = '.'; }
-        while(!TRMT);  TXREG = A[i-1] + 48;
+        while(!TRMT);  TXREG = character_buffer[i-1] + 48;
     }
 }
 
