@@ -17,6 +17,14 @@ In order to build this project you need a few tools.
 
 These tools can all be found on [BisonAcademy](http://www.bisonacademy.com/ECE376/Resources.htm)
 
+## Getting Started
+
+1. Clone this repo
+2. Open MPLABX IDE
+3. Select File->Open Project (Ctrl + Shift + O)
+4. Select the folder where the repo is cloned
+5. Clean/Build the project
+
 ## Documentation
 
 Doxygen style comments are used to create documentation for the helper functions in `lib/`. To generate html docs, [install Doxygen](https://www.doxygen.nl/download.html) (and add the Doxygen bin directory to the PATH) and run `doxygen` in the terminal to generate docs in `docs/`.
