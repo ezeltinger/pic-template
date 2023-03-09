@@ -2,6 +2,11 @@
 
 This repo is just a place to store documentation and library functions from [ECE 376 - Embedded Systems](http://www.bisonacademy.com/ECE376/Index.htm) (taught by Dr. Jacob Glower) so that I don't forget it.
 
+I also aimed to make the functions more readable by formatting the C files and adding better variable names and comments.
+
+Right now the template.c file builds, and I know from ECE 376 that most of the functions work.
+I haven't tested all the functions yet, though, so they may need some work to get right.
+
 ## Dependencies
 
 In order to build this project you need a few tools.
