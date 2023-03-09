@@ -11,3 +11,7 @@ In order to build this project you need a few tools.
 [PIC Flash Tool](http://www.bisonacademy.com/Software/PIC_Flash_Tool_1.2.exe)
 
 These tools can all be found on [BisonAcademy](http://www.bisonacademy.com/ECE376/Resources.htm)
+
+## Documentation
+
+Doxygen style comments are used to create documentation for the helper functions in `lib/`. To generate html and latex docs, [install Doxygen](https://www.doxygen.nl/download.html) (and add the Doxygen bin directory to the PATH) and run `doxygen` in the terminal to generate docs in `docs/`.

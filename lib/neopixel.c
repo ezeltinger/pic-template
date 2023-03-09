@@ -1,14 +1,16 @@
+unsigned char PIXEL @ 0x000;
+
+#include <pic18.h>
+
 /**
  * @brief Function to drive a NeoPixel connected to RD0
  * Drives the NeoPixel with 16 colors
  * Set TRISD = 0
  * 
+ * @param RED 
+ * @param GREEN 
+ * @param BLUE 
  */
-
-unsigned char PIXEL @ 0x000;
-
-#include <pic18.h>
-
 void NeoPixel_Display(unsigned char RED, unsigned char GREEN, unsigned char BLUE)
 {
    PIXEL = GREEN;	asm("  call Pixel_8 ");

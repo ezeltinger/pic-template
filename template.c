@@ -15,8 +15,12 @@
 
 const unsigned char MSG0[21] = "Hello World!!       ";
 
-/*
+/**
+ * @brief This is the main function of your program
  * 
+ * @param argc 
+ * @param argv 
+ * @return int does nothing
  */
 int main(int argc, char** argv) {
 

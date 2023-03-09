@@ -34,7 +34,10 @@ void D2A(unsigned int X)
     RC0 = 1;
 }
 
-// Square Wave
+/**
+ * @brief Use D2A to make a square wave
+ * 
+ */
 void d2a_square(void)
 {
     unsigned int i;
@@ -46,7 +49,10 @@ void d2a_square(void)
     }
 }
 
-// Sawtooth Wave
+/**
+ * @brief Use D2A to make a sawtooth wave
+ * 
+ */
 void d2a_sawtooth(void)
 {
    unsigned int x, i;
@@ -59,7 +65,10 @@ void d2a_sawtooth(void)
     }
 }
 
-// Triangle Wave
+/**
+ * @brief Use D2A to make a triangle wave
+ * 
+ */
 void d2a_triangle(void)
 {
     unsigned int x, dx, i;
@@ -74,7 +83,10 @@ void d2a_triangle(void)
     }
 }
 
-//Parabolic Sine Wave
+/**
+ * @brief Use D2A to make a parabolic sine wave
+ * 
+ */
 void d2a_sin(void)
 {
     unsigned int x, dx, y, i;

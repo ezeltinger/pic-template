@@ -25,15 +25,21 @@ void A2D_Init(void)
     ADCON0 = 0x01;
 }
 
+/**
+ * @brief Read A2D value
+ * 
+ * @param c 
+ * @return unsigned int A2D value
+ */
 unsigned int A2D_Read(unsigned char c)
 {
     unsigned int result;
     unsigned char i;
     c = c & 0x0F;
-    ADCON0 = (c << 2) + 0x01; 
-    for (i=0; i<20; i++); 
-    GODONE = 1; 
-    while(GODONE); 
+    ADCON0 = (c << 2) + 0x01;
+    for (i=0; i<20; i++);
+    GODONE = 1;
+    while(GODONE);
     return(ADRES);
 }
 

@@ -21,6 +21,10 @@
 # Executables
 *.exe
 
+# Docs
+docs/html
+docs/latex
+
 
 # KDE specific
 .directory
