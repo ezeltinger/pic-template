@@ -1,22 +1,30 @@
-/* 
- * File:   template.c
- * Author: Ethan Zeltinger
- *
- * Created on February 26, 2023, 2:18 PM
+/**
+ * @file template.c
+ * @author Ethan Zeltinger (ezeltinger@gmail.com)
+ * @brief A template program for the ECE376 PIC boards
+ * 
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <pic18.h>
-#include "lcd_portd.c"
+#include "lib/lcd_portd.c"
+#include "lib/a2d.c"
+#include "lib/d2a.c"
+#include "lib/keypad.c"
+#include "lib/neopixel.c"
+#include "lib/serial.c"
 
 const unsigned char MSG0[21] = "Hello World!!       ";
 
-/*
+/**
+ * @brief This is the main function of your program
  * 
+ * @param argc 
+ * @param argv 
+ * @return int does nothing
  */
 int main(int argc, char** argv) {
 
+    //Set PORTA to all outputs
     TRISA = 0;
     TRISB = 0x0F;
     TRISC = 0x0F;

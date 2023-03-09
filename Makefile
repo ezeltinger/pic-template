@@ -48,10 +48,13 @@ MKDIR=mkdir
 CP=cp
 CCADMIN=CCadmin
 RANLIB=ranlib
+PIC=C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.63\bin\picc18.exe
+PROJECT=pic-template
 
 
 # build
 build: .build-post
+
 
 .build-pre:
 # Add your pre 'build' code here...
@@ -62,6 +65,7 @@ build: .build-post
 
 # clean
 clean: .clean-post
+
 
 .clean-pre:
 # Add your pre 'clean' code here...
