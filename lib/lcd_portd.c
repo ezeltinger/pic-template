@@ -22,8 +22,6 @@ void LCD_Move(unsigned char Row, unsigned char Col);
 void LCD_Write(unsigned char c);
 void LCD_Init(void);
 void LCD_Out(long int DATA, unsigned char D, unsigned char N);
-void SCI_Out(long int DATA, unsigned char D, unsigned char N);
-void SCI_CRLF(void);
 
 void Wait_ms(unsigned int X)
 {
