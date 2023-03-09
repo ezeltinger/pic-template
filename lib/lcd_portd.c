@@ -1,16 +1,8 @@
-// --------- LCD_PortD.C ---------------------
-//
-// This routine has LCD driver routines
-//
-//  LCD_INST:   send an instruction to the LCD
-//  LCD_DATA:   send data to the LCD
-//  LCD_INIT:   initialize the LCD to 16x4 mode
-//
-//--- Revision History -----------------
-//     5/20/00   JSG
-//     9/27/00   Modify LCD_HELLO for Jump messages
-//    11/05/00   Clean up LCD routine to use less RAM
-//    10/14/14   Modified for new PIC boards
+/**
+ * @file lcd_portd.c
+ * @brief LCD helper functions
+ * 
+ */
 
 #include <pic18.h>
 
@@ -23,22 +15,35 @@ void LCD_Write(unsigned char c);
 void LCD_Init(void);
 void LCD_Out(long int DATA, unsigned char D, unsigned char N);
 
-void Wait_ms(unsigned int X)
+/**
+ * @brief Wait for ms milliseconds
+ * Note that 617 noops plus a for loop approximately equals 1ms
+ * 
+ * @param ms time to wait in milliseconds
+ */
+void Wait_ms(unsigned int ms)
 {
     unsigned int i, j;
 
-    for (i=0; i<X; i++)
+    for (i=0; i<ms; i++)
         for (j=0; j<617; j++);
 }
 
-
+/**
+ * @brief A simple pause for the LCD so that
+ * operations aren't executed to quickly.
+ * 
+ */
 void LCD_Pause(void)
 {
     unsigned char x;
     for (x=0; x<20; x++);
 }
 
-
+/**
+ * @brief Refresh LCD screen
+ * 
+ */
 void LCD_Strobe(void)
 {
     RD3 = 0;
@@ -49,7 +54,12 @@ void LCD_Strobe(void)
     LCD_Pause();
 }
 
-//  write a byte to the LCD in 4 bit mode 
+/**
+ * @brief Write an instruction to the LCD controller in 4 bit mode
+ * 
+ * @param c Instruction byte to write to the LCD
+ * @return void
+ */
 void LCD_Inst(unsigned char c)
 {
     RD2 = 0; // send an instruction
@@ -60,6 +70,12 @@ void LCD_Inst(unsigned char c)
     Wait_ms(10);
 }
 
+/**
+ * @brief Move the LCD cursor to a position on the LCD
+ * 
+ * @param Row On ECE376 PIC boards can only be 0 or 1
+ * @param Col Column on the LCD from 0 to 19
+ */
 void LCD_Move(unsigned char Row, unsigned char Col)
 {
     if (Row == 0) LCD_Inst(0x80 + Col);
@@ -68,16 +84,25 @@ void LCD_Move(unsigned char Row, unsigned char Col)
     if (Row == 3) LCD_Inst(0xD4 + Col);
 }
 
+/**
+ * @brief Write an ASCII character to the LCD
+ * 
+ * @param c character to write
+ */
 void LCD_Write(unsigned char c)
 {
     RD2 = 1; // send data
-    PORTD = (PORTD & 0x0F) |  (c & 0xF0);
+    PORTD = (PORTD & 0x0F) | (c & 0xF0);
     LCD_Strobe();
-    PORTD = (PORTD & 0x0F) |  ((c<<4)  & 0xF0);
+    PORTD = (PORTD & 0x0F) | ((c<<4)  & 0xF0);
     LCD_Strobe();
 
 }
 
+/**
+ * @brief Initialize the LCD
+ * 
+ */
 void LCD_Init(void)
 {
     TRISD = 0x01;
@@ -91,21 +116,28 @@ void LCD_Init(void)
     Wait_ms(100);
 }
 
-void LCD_Out(long int DATA, unsigned char D, unsigned char N)
+/**
+ * @brief Write a number to the LCD with a specified number of decimal places
+ * 
+ * @param data number to write to serial output
+ * @param num_digits number of digits in 'data'
+ * @param decimal_places number of decimal places in 'data' or where to put the decimal point in 'data'
+ */
+void LCD_Out(long int data, unsigned char num_digits, unsigned char decimal_places)
 {
-    unsigned char A[10], i;
+    unsigned char character_buffer[10], i;
 
-    if(DATA < 0) {
+    if(data < 0) {
         LCD_Write('-');
-        DATA = -DATA;
+        data = -data;
     }
     else LCD_Write(' ');
     for (i=0; i<10; i++) {
-        A[i] = DATA % 10;
-        DATA = DATA / 10;
+        character_buffer[i] = data % 10;
+        data = data / 10;
     }
-    for (i=D; i>0; i--) {
-        if (i == N) LCD_Write('.');
-        LCD_Write(A[i-1] + '0');
+    for (i=num_digits; i>0; i--) {
+        if (i == decimal_places) LCD_Write('.');
+        LCD_Write(character_buffer[i-1] + '0');
     }
 }
