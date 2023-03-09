@@ -11,9 +11,9 @@ I haven't tested all the functions yet, though, so they may need some work to ge
 
 In order to build this project you need a few tools.
 
-[MPLABX](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
-[HI-TECH C](http://www.bisonacademy.com/Software/HCPIC18-pro-9.63PL3.zip)
-[PIC Flash Tool](http://www.bisonacademy.com/Software/PIC_Flash_Tool_1.2.exe)
+- [MPLABX](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
+- [HI-TECH C](http://www.bisonacademy.com/Software/HCPIC18-pro-9.63PL3.zip)
+- [PIC Flash Tool](http://www.bisonacademy.com/Software/PIC_Flash_Tool_1.2.exe)
 
 These tools can all be found on [BisonAcademy](http://www.bisonacademy.com/ECE376/Resources.htm)
 
@@ -21,4 +21,4 @@ These tools can all be found on [BisonAcademy](http://www.bisonacademy.com/ECE37
 
 Doxygen style comments are used to create documentation for the helper functions in `lib/`. To generate html docs, [install Doxygen](https://www.doxygen.nl/download.html) (and add the Doxygen bin directory to the PATH) and run `doxygen` in the terminal to generate docs in `docs/`.
 
-TODO - Add comments to LCD functions
+**TODO** - Add comments to LCD functions
